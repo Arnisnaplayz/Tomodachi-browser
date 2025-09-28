@@ -1,8 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const playButton = document.getElementById('play');
-    const settingsButton = document.getElementById('settings');
-    const backButton = document.getElementById('back'); 
+    const settingsButton = document.getElementById('settings'); 
     
     playButton.addEventListener('click', function() {
         window.location.href = 'game.html';
@@ -11,11 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
     settingsButton.addEventListener('click', function() {
         window.location.href = 'settings.html';
     });
-    
-    
-    if (backButton) {
-        backButton.addEventListener('click', function() {
-            window.location.href = 'index.html'; 
-        });
-    }
+   
 });
