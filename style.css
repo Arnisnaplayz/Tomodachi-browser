@@ -1,0 +1,12 @@
+body {
+    background: lightblue;
+}
+
+button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointing;
+    border-radius: 5px;
+}
