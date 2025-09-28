@@ -1,7 +1,7 @@
 body {
     background: lightblue;
+    text-align: center;
 }
-
 button {
     background: green;
     color: white;
@@ -9,4 +9,6 @@ button {
     padding: 10px 20px;
     cursor: pointing;
     border-radius: 5px;
+    margin: 5px;
+    font-size: 16px;
 }
