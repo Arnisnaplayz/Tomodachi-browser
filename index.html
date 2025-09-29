@@ -8,11 +8,18 @@
    <div id="start-screen">
        <h1>Pet game Prototype</h1>
        <div id="actions">
-           <button id="play">Play</button>
-           <button id="settings">Settings</button>          
-           <button id="credits">credits</button>
+           <button id="credits">Credits</button>
+           <button id="play">Play</button>          
+           <button id="settings">Settings</button>
        </div>
    </div>
+   
+   <!-- Debug player display -->
+   <div id="onlineDisplay" style="position: fixed; top: 10px; right: 10px; background: black; color: white; padding: 10px;">
+       <h3 id="onlineCount">Players Online: 0</h3>
+       <div id="playersList">No players yet...</div>
+   </div>
+
    <script src="/socket.io/socket.io.js"></script>
    <script src="main/test.js"></script>
 </body>
