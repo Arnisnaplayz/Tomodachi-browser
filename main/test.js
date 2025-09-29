@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const settingsButton = document.getElementById('settings'); 
     
     playButton.addEventListener('click', function() {
-        window.location.href = 'main/game.html';
+        window.location.href = 'game/index.html';
     });
     
     settingsButton.addEventListener('click', function() {
