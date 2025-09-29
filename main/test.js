@@ -12,3 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
    
 });
+settingsButton.addEventListener('click', function() {
+        window.location.href = 'main/credits.html';
+    });
+    
+    ]
+
+});
+
