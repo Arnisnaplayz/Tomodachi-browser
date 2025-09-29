@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const settingsButton = document.getElementById('settings'); 
     
     playButton.addEventListener('click', function() {
-        window.location.href = 'game.html';
+        window.location.href = 'main/game.html';
     });
     
     settingsButton.addEventListener('click', function() {
-        window.location.href = 'settings.html';
+        window.location.href = 'main/settings.html';
     });
    
 });
