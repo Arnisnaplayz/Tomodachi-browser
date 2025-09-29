@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const socket = io('https://your-render-server.onrender.com');
+    const socket = io('https://tomodachi-multi.onrender.com');
 
     let onlineCountElement = document.getElementById('onlineCount');
     let playersListElement = document.getElementById('playersList');
