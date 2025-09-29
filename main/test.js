@@ -21,3 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+const express = require('express');
+const socketIo = require('socket.io');
