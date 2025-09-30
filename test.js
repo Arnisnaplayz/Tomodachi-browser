@@ -27,7 +27,8 @@ io.on('connection', (socket) => {
   io.emit('playerCount', onlinePlayers.size);
   
   socket.on('setUsername', (data) => {
-    console.log(`Player ${socket.id} set username to: ${data.username}`);
+    console.log('✅ SERVER RECEIVED username:', data.username);
+    console.log('✅ From socket:', socket.id);
     
     if (onlinePlayers.has(socket.id)) {
       const oldName = onlinePlayers.get(socket.id).name;
