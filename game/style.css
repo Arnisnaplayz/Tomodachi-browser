@@ -1,7 +1,69 @@
-mySlider {
-  border-radius: 25px;
-  background-color: #73AD21;
-  padding: 20px;
-  width: 200px;
-  height: 150px;
+/* General styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Slider styles */
+#mySlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity 0.2s ease-in-out;
+    margin-top: 20px;
+}
+
+/* Slider thumb styles */
+#mySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#mySlider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #007bff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover and active states for the slider */
+#mySlider:hover {
+    opacity: 1;
+}
+
+#mySlider:active::-webkit-slider-thumb {
+    background: #0056b3;
+}
+
+#mySlider:active::-moz-range-thumb {
+    background: #0056b3;
+}
+
+/* Display for slider value */
+#sliderValue {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
 }
