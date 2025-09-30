@@ -10,9 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
     let socket = null;
     let playerUsername = '';
 
+    // Load saved age if exists
+    const savedAge = localStorage.getItem('playerAge');
+    if (savedAge) {
+        ageSlider.value = savedAge;
+        ageValue.textContent = `Age: ${savedAge}`;
+    }
+
     agePopup.style.display = 'flex';
 
+    // FIX: Proper age slider update
     ageSlider.addEventListener('input', function() {
+        ageValue.textContent = `Age: ${this.value}`;
+    });
+
+    // FIX: Add touch events for mobile
+    ageSlider.addEventListener('touchmove', function() {
         ageValue.textContent = `Age: ${this.value}`;
     });
 
@@ -23,7 +36,39 @@ document.addEventListener('DOMContentLoaded', function() {
         usernamePopup.style.display = 'flex';
     });
 
+    // FIX: Add touch event for mobile buttons
+    confirmAge.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        const age = ageSlider.value;
+        localStorage.setItem('playerAge', age);
+        agePopup.style.display = 'none';
+        usernamePopup.style.display = 'flex';
+    });
+
+    // Load saved username if exists
+    const savedUsername = localStorage.getItem('playerUsername');
+    if (savedUsername) {
+        usernameInput.value = savedUsername;
+    }
+
     confirmUsername.addEventListener('click', function() {
+        handleUsernameConfirm();
+    });
+
+    // FIX: Add touch event for mobile
+    confirmUsername.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        handleUsernameConfirm();
+    });
+
+    // FIX: Enter key support for username
+    usernameInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            handleUsernameConfirm();
+        }
+    });
+
+    function handleUsernameConfirm() {
         const username = usernameInput.value.trim();
         if (username === '') {
             alert('Please enter a username!');
@@ -36,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         connectToMultiplayer(username);
         startGame();
-    });
+    }
 
     function connectToMultiplayer(username) {
         if (socket) return;
