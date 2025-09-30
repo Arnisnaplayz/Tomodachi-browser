@@ -27,9 +27,17 @@ io.on('connection', (socket) => {
   io.emit('playerCount', onlinePlayers.size);
   
   socket.on('setUsername', (data) => {
+    console.log(`Player ${socket.id} set username to: ${data.username}`);
+    
     if (onlinePlayers.has(socket.id)) {
+      const oldName = onlinePlayers.get(socket.id).name;
       onlinePlayers.get(socket.id).name = data.username;
-      io.emit('playerUpdated', onlinePlayers.get(socket.id));
+      
+      io.emit('playerUpdated', {
+        id: socket.id,
+        oldName: oldName,
+        newName: data.username
+      });
     }
   });
   
