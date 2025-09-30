@@ -1,35 +1,35 @@
+How do you make an HTML slider value update when it's being dragged by a mouse?
+To create an HTML slider that updates its value in real-time as it is being dragged, you can use the &lt;input&gt; element with type range and attach an event listener to it. Here's a simple example:
 
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="main/style.css">
-</head>
-<body>
-   <div id="game">
-   <!-- Age Slider Popup -->
-   <div id="agePopup" class="popup">
-       <div class="popup-content">
-           <h2>Select Your Age</h2>
-           <input type="range" id="ageSlider" min="1" max="100" value="18">
-           <div id="ageValue">Age: {value}</div>
-           <button id="confirmAge">Confirm Age</button>
-       </div>
-   </div>
+HTML
 
-   <!-- Username Popup -->
-   <div id="usernamePopup" class="popup">
-       <div class="popup-content">
-           <h2>Choose a Username</h2>
-           <input type="text" id="usernameInput" maxlength="20" placeholder="Enter username">
-           <button id="confirmUsername">Confirm Username</button>
-       </div>
-   </div>
-
-   <!-- reminder for me  that the game content goes here, so I don't mess things up.  -->
-   
-</div>
-
-   <script src="/socket.io/socket.io.js"></script>
-   <script src="game/game.js"></script>
-</body>
-</html>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Slider Example</title> 
+    <style> 
+        #sliderValue { 
+            font-size: 20px; 
+            margin-top: 10px; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <input type="range" id="mySlider" min="0" max="100" value="50"> 
+    <div id="sliderValue">Value: 50</div> 
+ 
+    <script> 
+        const slider = document.getElementById('mySlider'); 
+        const sliderValue = document.getElementById('sliderValue'); 
+ 
+        // Update the displayed value when the slider is moved 
+        slider.addEventListener('input', function() { 
+            sliderValue.textContent = 'Value: ' + this.value; 
+        }); 
+    </script> 
+ 
+</body> 
+</html> 
