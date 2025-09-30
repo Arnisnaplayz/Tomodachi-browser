@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function connectToMultiplayer() {
         if (socket) return;
 
-        socket = io('https://your-actual-server.onrender.com', {
+        socket = io('https://tomodachi-multi.onrender.com', {
             transports: ['websocket']
         });
 
