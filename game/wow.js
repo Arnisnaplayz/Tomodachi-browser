@@ -8,16 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const usernamePopup = document.getElementById('usernamePopup');
 
     let socket = null;
+    let playerUsername = '';
 
-    // Show age popup immediately when page loads
     agePopup.style.display = 'flex';
 
-    // Age slider update - FIXED
     ageSlider.addEventListener('input', function() {
         ageValue.textContent = `Age: ${this.value}`;
     });
 
-    // Confirm age and show username popup - FIXED
     confirmAge.addEventListener('click', function() {
         const age = ageSlider.value;
         localStorage.setItem('playerAge', age);
@@ -25,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         usernamePopup.style.display = 'flex';
     });
 
-    // Confirm username and start game - FIXED
     confirmUsername.addEventListener('click', function() {
         const username = usernameInput.value.trim();
         if (username === '') {
@@ -33,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
+        playerUsername = username;
         localStorage.setItem('playerUsername', username);
         usernamePopup.style.display = 'none';
         
-        // Now connect to multiplayer and start game
         connectToMultiplayer(username);
         startGame();
     });
@@ -44,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function connectToMultiplayer(username) {
         if (socket) return;
 
-        // REPLACE WITH YOUR ACTUAL RENDER URL
         socket = io('https://tomodachi-multi.onrender.com');
 
         const onlineDisplay = document.createElement('div');
@@ -65,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 onlineCountElement.style.color = '#00ff00';
             }
             
-            // Send username to server
+            console.log('Sending username to server:', username);
             socket.emit('setUsername', { username: username });
         });
 
@@ -93,6 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        socket.on('playerUpdated', (data) => {
+            const playerElement = document.getElementById(`player-${data.id}`);
+            if (playerElement) {
+                playerElement.textContent = data.newName;
+            }
+        });
+
         socket.on('playerLeft', (playerId) => {
             const playerElement = document.getElementById(`player-${playerId}`);
             if (playerElement) {
@@ -110,14 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function startGame() {
-        // game initialization part here
-
         console.log('Game starting!');
-        
-
         const gameDiv = document.getElementById('game');
         gameDiv.innerHTML = '<h1>Your Game Starts Here!</h1><p>Add your game content</p>';
-        
-        // main game source code here. 
     }
 });
