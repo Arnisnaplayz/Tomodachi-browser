@@ -13,7 +13,7 @@ body {
 }
 
 /* Slider styles */
-#mySlider {
+mySlider {
     -webkit-appearance: none;
     appearance: none;
     width: 80%;
@@ -38,7 +38,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#mySlider::-moz-range-thumb {
+mySlider::-moz-range-thumb {
     width: 25px;
     height: 25px;
     background: #007bff;
@@ -48,15 +48,15 @@ body {
 }
 
 /* Hover and active states for the slider */
-#mySlider:hover {
+mySlider:hover {
     opacity: 1;
 }
 
-#mySlider:active::-webkit-slider-thumb {
+mySlider:active::-webkit-slider-thumb {
     background: #0056b3;
 }
 
-#mySlider:active::-moz-range-thumb {
+mySlider:active::-moz-range-thumb {
     background: #0056b3;
 }
 
