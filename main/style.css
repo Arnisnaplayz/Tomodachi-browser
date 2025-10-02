@@ -78,3 +78,10 @@ h1 {
     gap: 15px;
     align-items: center;
 }
+
+play:active{
+background:URL(./images/PLAY.png) no-repeat;
+cursor:pointer;
+border:none;
+
+}
